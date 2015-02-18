@@ -12,7 +12,11 @@ var options = {
   cert: fs.readFileSync('certs/cert.pem')
 };
 
-app.set('port', config.app.port);
+app.set('port', (process.env.PORT || config.app.port));
+
+app.get('/', function(req, res) {
+	res.render('<h1>Hello There! Welcome to the Imgur Server.</h1>');
+});
 
 app.get('/favorites/token/:tokenID', function(req, res) {
 	var token = req.params.tokenID;
@@ -37,7 +41,9 @@ app.get('/favorites/token/:tokenID', function(req, res) {
 });
 
 //Create an HTTPS service identical to the HTTP service.
-https.createServer(options, app).listen(config.app.port);
+https.createServer(options, app).listen(app.get('port'), function() {
+	console.log('Server listening on ' + app.get('port'));
+});
 
 
 // Return slim data set with only the properties listed in fields

@@ -14,10 +14,6 @@ var options = {
 
 app.set('port', (process.env.PORT || config.app.port));
 
-app.get('/', function(req, res) {
-	res.render('<h1>Hello There! Welcome to the Imgur Server.</h1>');
-});
-
 app.get('/favorites/token/:tokenID', function(req, res) {
 	var token = req.params.tokenID;
 	if(!token) {

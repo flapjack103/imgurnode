@@ -7,10 +7,10 @@ var express = require('express')
   , ImgurClient = require('./client');
 
 
-var options = {
-  key: fs.readFileSync('certs/key.pem'),
-  cert: fs.readFileSync('certs/cert.pem')
-};
+// var options = {
+//   key: fs.readFileSync('certs/key.pem'),
+//   cert: fs.readFileSync('certs/cert.pem')
+// };
 
 app.set('port', (process.env.PORT || config.app.port));
 

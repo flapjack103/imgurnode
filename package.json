@@ -1,0 +1,10 @@
+{
+  "name": "imgurnode",
+  "version": "0.0.1",
+  "description": "A package for interacting with the Imgur API",
+  "main": "client.js",
+  "dependencies": {
+  	"express": "^4.0.0",
+    "querystring": "*"
+  }
+}

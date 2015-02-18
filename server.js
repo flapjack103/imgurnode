@@ -1,7 +1,7 @@
 var express = require('express')
   , path = require('path')
   , app = express()
-  , https = require('https')
+  , http = require('http')
   , fs = require('fs')
   , config = require('./config')
   , ImgurClient = require('./client');
@@ -41,7 +41,7 @@ app.get('/favorites/token/:tokenID', function(req, res) {
 });
 
 //Create an HTTPS service identical to the HTTP service.
-https.createServer(options, app).listen(app.get('port'), function() {
+http.createServer(app).listen(app.get('port'), function() {
 	console.log('Server listening on ' + app.get('port'));
 });
 

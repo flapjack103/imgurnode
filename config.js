@@ -4,6 +4,7 @@ config.imgur = {};
 config.imgur.base_url = 'api.imgur.com';
 config.imgur.clientID = 'cd6202c94bb80ba';
 config.imgur.clientSecret = '01b086c0620dbbd0373ffc2c64a7985494964b0d';
+config.imgur.refreshToken = '4b71b351b62624f553cdd1638d2994974daafaa6';
 
 config.app = {};
 config.app.port = 5000;

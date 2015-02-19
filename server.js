@@ -1,16 +1,10 @@
 var express = require('express')
-  , path = require('path')
   , app = express()
   , http = require('http')
-  , fs = require('fs')
   , config = require('./config')
-  , ImgurClient = require('./client');
+  , ImgurClient = require('./lib/imgurClient');
 
-
-// var options = {
-//   key: fs.readFileSync('certs/key.pem'),
-//   cert: fs.readFileSync('certs/cert.pem')
-// };
+var FAV_FIELDS = ['id', 'link', 'is_album', 'animated', 'type'];
 
 app.set('port', (process.env.PORT || config.app.port));
 
@@ -28,7 +22,7 @@ app.get('/favorites/token/:tokenID', function(req, res) {
 			client.getAccountFavorites('me', function(err, data) {
 				if(err) res.status(400).send({'error':err});
 				else {
-					var dataShort = getInterestingFields(['id', 'link', 'is_album', 'animated', 'type'], data.data);
+					var dataShort = getInterestingFields(FAV_FIELDS, data.data);
 					res.status(200).send({'data':dataShort});
 				}
 			});
@@ -36,7 +30,7 @@ app.get('/favorites/token/:tokenID', function(req, res) {
 	});
 });
 
-//Create an HTTPS service identical to the HTTP service.
+// Make this https eventually
 http.createServer(app).listen(app.get('port'), function() {
 	console.log('Server listening on ' + app.get('port'));
 });

@@ -1,10 +1,23 @@
 {
   "name": "imgurnode",
+  "author": "Alexandra Grant <alexandrag103@gmail.com>",
   "version": "0.0.1",
-  "description": "An Express server for interacting with the Imgur API",
-  "main": "client.js",
+  "description": "Node package for interacting with the Imgur API. This is a port of the official Python Imgur API, imgurpython.",
+  "main": "index.js",
   "dependencies": {
-  	"express": "^4.0.0",
     "querystring": "*"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:flapjack103/imgurnode.git"
+  },
+  "keywords": [
+    "imgur"
+  ],
+  "licenses": [
+    {
+      "type": "MIT",
+      "url" : "https://github.com/flapjack103/imgurnode/blob/master/LICENSE-MIT"
+    }
+  ]
 }
